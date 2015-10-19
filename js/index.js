@@ -37,13 +37,29 @@
   };
 
   function getCurrentWeather(data){
-   //console.log(data);
-   cityWeather.zone = datal.name;
+   console.log(data);
+   cityWeather.zone = data.name;
    cityWeather.icon = IMG_WEATHER + data.weather[0].icon + ".png";
-   cityWeather.temp = data.main.temp-273.15;
-   cityWeather.temp_max = data.main.tempo_max - 273.15;
-   cityWeather.temp_min =  data.main.temp_min - 273.15;
+   cityWeather.temp = data.main.temp -273.15;
+   cityWeather.temp_max = data.main.temp_max - 273.15;
+   cityWeather.temp_min = data.main.temp_min - 273.15;
    cityWeather.main= data.weather[0].main;
-  }
+
+   renderTemplate();
+ };
+
+  function activateTemplate(id){
+    var t = document.querySelector(id);
+    return document.importNode(t.content, true);
+  };
+
+  function renderTemplate() {
+    var clone = activateTemplate("#template--city");
+
+    //clone = querySelector("[data-time]").innerHTML = ;
+    clone.querySelector("[data-city]").innerHTML = cityWeather.zone;
+    //clone.querySelector
+    $("body").append(clone);
+  };
 
 })();

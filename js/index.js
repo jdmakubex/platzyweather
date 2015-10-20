@@ -62,6 +62,7 @@
     clone.querySelector("[data-temp='max']").innerHTML = cityWeather.temp_max.toFixed(1);
     clone.querySelector("[data-temp='min']").innerHTML = cityWeather.temp_min.toFixed(1);
     clone.querySelector("[data-temp='current']").innerHTML = cityWeather.temp.toFixed(1);
+    $(".loader").hide();
     $("body").append(clone);
   };
 

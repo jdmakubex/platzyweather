@@ -3,6 +3,10 @@
  var API_WEATHER_URL ="http://api.openweathermap.org/data/2.5/weather?APPID=" + API_WEATHER_KEY + "&" ;
  var IMG_WEATHER = "http://openweathermap.org/img/w/";
 
+ //Creando variables que calculan y almacenan la hora
+ var today = new Date();
+ var timeNow = today.toLocaleTimeString();
+
  var cityWeather = {};
  cityWeather.zone;
  cityWeather.icon;
@@ -56,7 +60,7 @@
   function renderTemplate() {
     var clone = activateTemplate("#template--city");
 
-    //clone.querySelector("[data-time]").innerHTML = ;
+    clone.querySelector("[data-time]").innerHTML = timeNow ;
     clone.querySelector("[data-city]").innerHTML = cityWeather.zone;
     clone.querySelector("[data-icon]").src = cityWeather.icon;
     clone.querySelector("[data-temp='max']").innerHTML = cityWeather.temp_max.toFixed(1);

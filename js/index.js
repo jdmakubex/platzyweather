@@ -59,9 +59,9 @@
     //clone.querySelector("[data-time]").innerHTML = ;
     clone.querySelector("[data-city]").innerHTML = cityWeather.zone;
     clone.querySelector("[data-icon]").src = cityWeather.icon;
-    clone.querySelector("[data-temp='max']").innerHTML = cityWeather.temp_max;
-    clone.querySelector("[data-temp='min']").innerHTML = cityWeather.temp_min;
-    clone.querySelector("[data-temp='current']").innerHTML = cityWeather.temp;
+    clone.querySelector("[data-temp='max']").innerHTML = cityWeather.temp_max.toFixed(1);
+    clone.querySelector("[data-temp='min']").innerHTML = cityWeather.temp_min.toFixed(1);
+    clone.querySelector("[data-temp='current']").innerHTML = cityWeather.temp.toFixed(1);
     $("body").append(clone);
   };
 

@@ -16,6 +16,7 @@
  var $loader = $("loader");
  var nombreNuevaCiudad = $("[data-input= 'cityAdd']");
  var buttonAdd = $("[data-buton='add']");
+ var buttonLoad = $("[data-saved-cities]");
 
  var cityWeather = {};
  cityWeather.zone;
@@ -26,6 +27,8 @@
  cityWeather.main;
 
  $( buttonAdd ).on("click", addNewCity);
+
+ $(buttonLoad).on("click", loadSavedCities);
 
  $( nombreNuevaCiudad).on("keypress", function(event){
    //Probando el numero de la tecla Enter, resultó ser 13
@@ -121,8 +124,17 @@ function getWeatherNewCity(data){
     cities.push(cityWeather);
     localStorage.setItem("cities", JSON.stringify(cities));
     });
+}
 
+ function loadSavedCities (event){
+   event.preventDefault();
 
-};
-
+   function renderCities(cities){
+     cities.forEach(function(city){
+       renderTemplate(city);
+     });
+   };
+   var cities = JSON.parse(localStorage.getItem("cities"));
+   renderCities(cities);
+ }
 })();
